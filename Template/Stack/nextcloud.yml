@@ -19,7 +19,7 @@ services:
     networks:
       - ${SECURENET}
       - ${PROXYNET}
-     env_file:
+    env_file:
       - .env
   nextcloud_db:
     image: registry.hub.docker.com/library/postgres:14
