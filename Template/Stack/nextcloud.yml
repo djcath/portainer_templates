@@ -41,13 +41,7 @@ services:
       - ${SECURENET}
     env_file:
       - .env
-networks:
-  ${PROXYNET}:
-    driver: bridge
-    external: true
-  ${SECURENET}:
-    driver: bridge
-    external: true
+
 
 volumes:
   nextclouddatabase:
