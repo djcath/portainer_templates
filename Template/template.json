@@ -1356,14 +1356,6 @@
 		{
           "label": "Secret Key",
           "name": "AUTHENTIK_SECRET_KEY"
-        },
-		{
-          "label": "Secure Network",
-          "name": "SECURENETWORK"
-        },
-		{
-          "label": "Proxy Network",
-          "name": "PROXYNETWORK"
         }
       ],
       "logo": "https://goauthentik.io/img/icon_top_brand_colour.svg",
