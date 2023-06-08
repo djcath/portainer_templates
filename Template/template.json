@@ -2309,11 +2309,11 @@
         },
 	{
           "label": "Secure Network",
-          "name": "SECURENETWORK"
+          "name": "SECURENET"
         },
 		{
           "label": "Proxy Network",
-          "name": "PROXYNETWORK"
+          "name": "PROXYNET"
         }
       ],
       "logo": "https://raw.githubusercontent.com/djcath/portainer_templates/master/Images/nextcloud-icon.png",
