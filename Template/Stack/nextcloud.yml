@@ -19,6 +19,8 @@ services:
     networks:
       - ${SECURENET}
       - ${PROXYNET}
+     env_file:
+      - .env
   nextcloud_db:
     image: registry.hub.docker.com/library/postgres:14
     restart: unless-stopped
@@ -37,6 +39,8 @@ services:
 
     networks:
       - ${SECURENET}
+    env_file:
+      - .env
 networks:
   ${PROXYNET}:
     driver: bridge
