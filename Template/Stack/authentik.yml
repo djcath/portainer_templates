@@ -12,7 +12,7 @@ services:
       - POSTGRES_USER=${PG_USER:-authentik}
       - POSTGRES_DB=${PG_DB:-authentik}
     networks:
-      - ${SECURENETWORK}
+      - auth-secure
     env_file:
       - .env
   redis:
@@ -28,7 +28,7 @@ services:
     volumes:
       - auth-redis:/data
     networks:
-      - ${SECURENETWORK}
+      - auth-secure
       env_file:
       - .env
   server:
@@ -55,8 +55,8 @@ services:
       - postgresql
       - redis
     networks:
-      - ${SECURENETWORK}
-      - ${PROXYNETWORK}
+      - auth-secure
+      - proxynet
   worker:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2023.5.3}
     restart: unless-stopped
@@ -81,8 +81,8 @@ services:
       - postgresql
       - redis
     networks:
-      - ${SECURENETWORK}
-      - ${PROXYNETWORK}
+      - auth-secure
+      - proxynet
     env_file:
       - .env
 
@@ -96,9 +96,9 @@ volumes:
 
 
 networks:
-  ${PROXYNETWORK}:
+  proxynet:
     driver: bridge
     external: true
-  ${SECURENETWORK}:
+  auth-secure:
     driver: bridge
     external: true
