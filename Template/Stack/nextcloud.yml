@@ -1,5 +1,5 @@
 ---
-version: "2"
+version: "3.2"
 services:
   nextcloud:
     image: linuxserver/nextcloud
@@ -45,10 +45,9 @@ services:
 networks:
   ${PROXYNET}:
     external: true
-    name: "${PROXYNET}"
   ${SECURENET}:
     external: true
-    name: "${SECURENET}"
+
          
 
 volumes:
