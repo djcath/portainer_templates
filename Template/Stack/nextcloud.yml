@@ -17,8 +17,8 @@ services:
     depends_on:
       - nextcloud_db
     networks:
-      - ${PROXYNETWORK}
-      - ${SECURENETWORK}
+      - proxynet
+      - next-secure
 
   nextcloud_db:
     image: registry.hub.docker.com/library/postgres:14
@@ -37,14 +37,14 @@ services:
       - POSTGRES_DB=nextcloud_db
 
     networks:
-      - ${SECURENETWORK}
+      - next-secure
 
       
 networks:
-  ${PROXYNETWORK}:
+  proxynet:
     external: true
-  ${SECURENETWORK}:
-    external: true
+  next-secure:
+    driver: "bridge"
 
          
 
