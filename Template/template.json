@@ -1328,17 +1328,9 @@
       "type": 3
     },  
     {
-      "type": 2,
-      "title": "Authentik",
-      "description": "Authentik is an open-source Identity Provider focused on flexibility and versatility",
       "categories": ["Tools", "Authentication"],
-      "platform": "linux",
-      "logo": "https://d33wubrfki0l68.cloudfront.net/228cc7243c167d0ad9f9adf2129d69b787129ccb/73d36/img/icon_left_brand.svg",
-      "repository": {
-        "url": "https://github.com/djcath/portainer_templates",
-        "stackfile": "Template/Stack/authentik.yml"
-      },
-      "env":  [
+      "description": "Authentik is an open-source Identity Provider focused on flexibility and versatility",
+      "env": [
         {
           "default": "1000",
           "label": "PUID",
@@ -1372,8 +1364,17 @@
 		{
           "label": "Proxy Network",
           "name": "PROXYNETWORK"
-        },
+        }
       ],
+      "logo": "https://d33wubrfki0l68.cloudfront.net/228cc7243c167d0ad9f9adf2129d69b787129ccb/73d36/img/icon_left_brand.svg",
+      "name": "Authentik",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "Template/Stack/authentik.yml",
+        "url": "https://github.com/xneo1/portainer_templates"
+      },
+      "title": "Authentik",
+      "type": 3
     },
     {
       "categories": ["Multimedia", "Music"],
