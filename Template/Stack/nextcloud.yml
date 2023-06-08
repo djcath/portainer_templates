@@ -17,8 +17,8 @@ services:
     depends_on:
       - nextcloud_db
     networks:
-      - ${SECURENET}
       - ${PROXYNET}
+      - ${SECURENET}
     env_file:
       - .env
   nextcloud_db:
