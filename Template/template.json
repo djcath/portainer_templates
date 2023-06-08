@@ -1342,28 +1342,8 @@
           "name": "PGID"
         },
         {
-          "label": "HTTP Port",
-          "name": "AUTH_PORT_HTTP"
-        },
-		{
-          "label": "HTTPS Port",
-          "name": "AUTH_PORT_HTTPS"
-        },
-		{
-          "label": "Database password",
-          "name": "DB_PASS"
-        },
-		{
-          "label": "Generated Secret Key",
-          "name": "AUTHENTIK_SECRET_KEY"
-        },
-		{
-          "label": "Secure Network",
-          "name": "SECURENETWORK"
-        },
-		{
-          "label": "Proxy Network",
-          "name": "PROXYNETWORK"
+          "label": "PORT",
+          "name": "PORT"
         }
       ],
       "logo": "https://d33wubrfki0l68.cloudfront.net/228cc7243c167d0ad9f9adf2129d69b787129ccb/73d36/img/icon_left_brand.svg",
@@ -1375,7 +1355,7 @@
       },
       "title": "Authentik",
       "type": 3
-    },
+    },  
     {
       "categories": ["Multimedia", "Music"],
       "description": "Navidrome is an open source web-based music collection server and streamer. It gives you freedom to listen to your music collection from any browser or mobile device. It's like your personal Spotify!",
