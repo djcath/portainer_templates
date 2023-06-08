@@ -12,8 +12,7 @@ services:
       - POSTGRES_DB=${PG_DB:-authentik}
     networks:
       - auth-secure
-    env_file:
-      - .env
+
   redis:
     image: docker.io/library/redis:alpine
     command: --save 60 1 --loglevel warning
@@ -30,8 +29,7 @@ services:
       - auth-redis:/data
     networks:
       - auth-secure
-    env_file:
-      - .env
+
   server:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2023.5.3}
     restart: unless-stopped
@@ -45,8 +43,7 @@ services:
     volumes:
       - auth-appdata:/media
       - auth-appdata:/templates
-    env_file:
-      - .env
+
     ports:
       - ${AUTH_PORT_HTTP}:9000
       - ${AUTH_PORT_HTTPS}:9443
@@ -78,8 +75,7 @@ services:
     networks:
       - auth-secure
       - proxynet
-    env_file:
-      - .env
+
 volumes:
   auth-database:
     driver: local
