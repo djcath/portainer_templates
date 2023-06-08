@@ -1755,7 +1755,8 @@
       "type": 1,
       "volumes": [
         {
-          "swagconfig": "/config"
+          "volume": "swagconfig",
+          "container": "/config"
         }
       ]
     },
