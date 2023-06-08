@@ -1,6 +1,5 @@
 ---
-version: '3.2'
-
+version: "3.2"
 services:
   postgresql:
     image: postgres:12-alpine
@@ -20,7 +19,9 @@ services:
     command: --save 60 1 --loglevel warning
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      test:
+        - CMD-SHELL
+        - redis-cli ping | grep PONG
       start_period: 20s
       interval: 30s
       retries: 5
@@ -29,7 +30,7 @@ services:
       - auth-redis:/data
     networks:
       - auth-secure
-      env_file:
+    env_file:
       - .env
   server:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2023.5.3}
@@ -41,17 +42,15 @@ services:
       AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
       AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
       AUTHENTIK_POSTGRESQL__PASSWORD: ${DB_PASS}
-      # AUTHENTIK_ERROR_REPORTING__ENABLED: "true"
-      # WORKERS: 2
     volumes:
       - auth-appdata:/media
       - auth-appdata:/templates
     env_file:
       - .env
     ports:
-      - "${AUTH_PORT_HTTP}:9000"
-      - "${AUTH_PORT_HTTPS}:9443"
-      depends_on:
+      - ${AUTH_PORT_HTTP}:9000
+      - ${AUTH_PORT_HTTPS}:9443
+    depends_on:
       - postgresql
       - redis
     networks:
@@ -67,17 +66,13 @@ services:
       AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
       AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
       AUTHENTIK_POSTGRESQL__PASSWORD: ${DB_PASS}
-      # AUTHENTIK_ERROR_REPORTING__ENABLED: "true"
-    # This is optional, and can be removed. If you remove this, the following will happen
-    # - The permissions for the /backups and /media folders aren't fixed, so make sure they are 1000:1000
-    # - The docker socket can't be accessed anymore
     user: root
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - auth-appdata:/media
       - auth-appdata:/certs
       - auth-appdata:/templates
-      depends_on:
+    depends_on:
       - postgresql
       - redis
     networks:
@@ -85,7 +80,6 @@ services:
       - proxynet
     env_file:
       - .env
-
 volumes:
   auth-database:
     driver: local
@@ -93,8 +87,6 @@ volumes:
     driver: local
   auth-appdata:
     driver: local
-
-
 networks:
   proxynet:
     driver: bridge
