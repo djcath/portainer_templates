@@ -1,5 +1,5 @@
 ---
-version: "1"
+version: "2"
 services:
   nextcloud:
     image: linuxserver/nextcloud
@@ -44,11 +44,11 @@ services:
       
 networks:
   ${PROXYNET}:
-    driver: bridge
-    external: true
+    external:                                                                                                                                                                  
+         name: ${PROXYNET}
   ${SECURENET}:
-    driver: bridge
-    external: true
+    external:                                                                                                                                                                  
+         name: ${SECURENET}
 
 volumes:
   nextclouddatabase:
