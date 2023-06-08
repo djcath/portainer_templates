@@ -2306,14 +2306,6 @@
         {
           "label": "PORT",
           "name": "PORT"
-        },
-	{
-          "label": "Secure Network",
-          "name": "SECURENETWORK"
-        },
-		{
-          "label": "Proxy Network",
-          "name": "PROXYNETWORK"
         }
       ],
       "logo": "https://raw.githubusercontent.com/djcath/portainer_templates/master/Images/nextcloud-icon.png",
