@@ -17,10 +17,9 @@ services:
     depends_on:
       - nextcloud_db
     networks:
-      - ${PROXYNET}
-      - ${SECURENET}
-    env_file:
-      - .env
+      - ${PROXYNETWORK}
+      - ${SECURENETWORK}
+
   nextcloud_db:
     image: registry.hub.docker.com/library/postgres:14
     restart: unless-stopped
@@ -38,14 +37,13 @@ services:
       - POSTGRES_DB=nextcloud_db
 
     networks:
-      - ${SECURENET}
-    env_file:
-      - .env
+      - ${SECURENETWORK}
+
       
 networks:
-  ${PROXYNET}:
+  ${PROXYNETWORK}:
     external: true
-  ${SECURENET}:
+  ${SECURENETWORK}:
     external: true
 
          
