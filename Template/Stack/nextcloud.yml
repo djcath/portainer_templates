@@ -44,11 +44,11 @@ services:
       
 networks:
   ${PROXYNET}:
-    external:                                                                                                                                                                  
-         name: ${PROXYNET}
+    external: true                                                                                                                                                                  
+
   ${SECURENET}:
-    external:                                                                                                                                                                  
-         name: ${SECURENET}
+    external: true                                                                                                                                                             
+         
 
 volumes:
   nextclouddatabase:
