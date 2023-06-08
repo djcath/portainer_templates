@@ -1342,8 +1342,28 @@
           "name": "PGID"
         },
         {
-          "label": "PORT",
-          "name": "PORT"
+          "label": "HTTP Port",
+          "name": "AUTH_PORT_HTTP"
+        },
+		{
+          "label": "HTTPS Port",
+          "name": "AUTH_PORT_HTTPS"
+        },
+		{
+          "label": "Database password",
+          "name": "DB_PASS"
+        },
+		{
+          "label": "Secret Key",
+          "name": "AUTHENTIK_SECRET_KEY"
+        },
+		{
+          "label": "Secure Network",
+          "name": "SECURENETWORK"
+        },
+		{
+          "label": "Proxy Network",
+          "name": "PROXYNETWORK"
         }
       ],
       "logo": "https://d33wubrfki0l68.cloudfront.net/228cc7243c167d0ad9f9adf2129d69b787129ccb/73d36/img/icon_left_brand.svg",
