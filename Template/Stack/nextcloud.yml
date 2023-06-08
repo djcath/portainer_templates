@@ -44,10 +44,11 @@ services:
       
 networks:
   ${PROXYNET}:
-    external: true                                                                                                                                                                  
-
+    external: true
+    name: "${PROXYNET}"
   ${SECURENET}:
-    external: true                                                                                                                                                             
+    external: true
+    name: "${SECURENET}"
          
 
 volumes:
