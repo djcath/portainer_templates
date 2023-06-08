@@ -35,11 +35,12 @@ services:
     restart: unless-stopped
     command: server
     environment:
-      AUTHENTIK_REDIS__HOST: redis
-      AUTHENTIK_POSTGRESQL__HOST: postgresql
-      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
-      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
-      AUTHENTIK_POSTGRESQL__PASSWORD: ${DB_PASS}
+      - AUTHENTIK_REDIS__HOST=redis
+      - AUTHENTIK_POSTGRESQL__HOST=postgresql
+      - AUTHENTIK_POSTGRESQL__USER=${PG_USER:-authentik}
+      - AUTHENTIK_POSTGRESQL__NAME=${PG_DB:-authentik}
+      - AUTHENTIK_POSTGRESQL__PASSWORD=${DB_PASS}
+      - AUTHENTIK_SECRET_KEY={AUTHENTIK_SECRET_KEY}
     volumes:
       - auth-appdata:/media
       - auth-appdata:/templates
@@ -58,11 +59,12 @@ services:
     restart: unless-stopped
     command: worker
     environment:
-      AUTHENTIK_REDIS__HOST: redis
-      AUTHENTIK_POSTGRESQL__HOST: postgresql
-      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
-      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
-      AUTHENTIK_POSTGRESQL__PASSWORD: ${DB_PASS}
+      - AUTHENTIK_REDIS__HOST=redis
+      - AUTHENTIK_POSTGRESQL__HOST=postgresql
+      - AUTHENTIK_POSTGRESQL__USER=${PG_USER:-authentik}
+      - AUTHENTIK_POSTGRESQL__NAME=${PG_DB:-authentik}
+      - AUTHENTIK_POSTGRESQL__PASSWORD=${DB_PASS}
+      - AUTHENTIK_SECRET_KEY={AUTHENTIK_SECRET_KEY}
     user: root
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
