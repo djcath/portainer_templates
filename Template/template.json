@@ -1371,7 +1371,7 @@
       "platform": "linux",
       "repository": {
         "stackfile": "Template/Stack/authentik.yml",
-        "url": "https://github.com/xneo1/portainer_templates"
+        "url": "https://github.com/djcath/portainer_templates"
       },
       "title": "Authentik",
       "type": 3
@@ -2292,30 +2292,28 @@
       "description": "Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
       "env": [
         {
-          "default": "1000",
-          "label": "PUID",
-          "name": "PUID"
-        },
-        {
-          "default": "100",
-          "label": "PGID",
-          "name": "PGID"
-        },
-        {
-          "label": "TZ",
+          "label": "TimeZone",
           "name": "TZ"
         },
         {
           "label": "DATABASE_PASSWORD",
-          "name": "DATABASE_PASSWORD"
+          "name": "DB_PASS"
         },
         {
-          "label": "MYSQL_ROOT_PASSWORD",
-          "name": "MYSQL_ROOT_PASSWORD"
+          "label": "Store Nextcloud Data",
+          "name": "DATADRIVE"
         },
         {
           "label": "PORT",
           "name": "PORT"
+        },
+	{
+          "label": "Secure Network",
+          "name": "SECURENETWORK"
+        },
+		{
+          "label": "Proxy Network",
+          "name": "PROXYNETWORK"
         }
       ],
       "logo": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/nextcloud-icon.png",
@@ -2324,7 +2322,7 @@
       "platform": "linux",
       "repository": {
         "stackfile": "Template/Stack/nextcloud.yml",
-        "url": "https://github.com/xneo1/portainer_templates"
+        "url": "https://github.com/djcath/portainer_templates"
       },
       "title": "Nextcloud",
       "type": 3
