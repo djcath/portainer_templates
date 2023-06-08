@@ -1,31 +1,53 @@
 ---
-version: "2"
+version: "1"
 services:
   nextcloud:
     image: linuxserver/nextcloud
     container_name: nextcloud
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
+      - PUID=99
+      - PGID=100
       - TZ=${TZ}
     volumes:
-      - /portainer/Files/AppData/Config/Nextcloud/Config:/config
+      - nextcloudconfig:/config
+      - ${DATADRIVE}:/data
     ports:
       - ${PORT}:443
     restart: unless-stopped
     depends_on:
       - nextcloud_db
+    networks:
+      - ${SECURENET}
+      - ${PROXYNET}
   nextcloud_db:
-    image: linuxserver/mariadb
-    container_name: nextcloud_db
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - TZ=${Timezone}
-      - MYSQL_DATABASE=nextcloud_db
-      - MYSQL_USER=nextcloud
-      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
-    volumes:
-      - /portainer/AppData/Config/Nextcloud/DB:/config
+    image: registry.hub.docker.com/library/postgres:14
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      start_period: 20s
+      interval: 30s
+      retries: 5
+      timeout: 5s
+    volumes:
+      - nextclouddatabase:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_DB=nextcloud_db
+
+    networks:
+      - ${SECURENET}
+networks:
+  ${PROXYNET}:
+    driver: bridge
+    external: true
+  ${SECURENET}:
+    driver: bridge
+    external: true
+
+volumes:
+  nextclouddatabase:
+    driver: local
+  nextcloudconfig:
+    driver: local
+    
