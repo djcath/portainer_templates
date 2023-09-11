@@ -1326,7 +1326,48 @@
       },
       "title": "Fenrus",
       "type": 3
-    },  
+    },
+    {
+      "categories": ["Tools", "Automation"],
+      "description": "Overkill is Leighs full automation stack",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "1000",
+          "label": "PGID",
+          "name": "PGID"
+        },
+        {
+          "label": "Download Directory",
+          "name": "downloads"
+        },
+		{
+          "label": "Incomplete Downloads Directory",
+          "name": "incomplete"
+        },
+		{
+          "label": "Movies Directory",
+          "name": "movies"
+        },
+		{
+          "label": "TV Shows Directory",
+          "name": "tv"
+        }
+      ],
+      "logo": "https://goauthentik.io/img/icon_top_brand_colour.svg",
+      "name": "DJC-Overkill",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "Template/Stack/djc-overkill.yml",
+        "url": "https://github.com/djcath/portainer_templates"
+      },
+      "title": "DJC-Overkill",
+      "type": 3
+    },	  
     {
       "categories": ["Tools", "Authentication"],
       "description": "Authentik is an open-source Identity Provider focused on flexibility and versatility",
