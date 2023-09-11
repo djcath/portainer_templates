@@ -78,7 +78,7 @@ volumes:
     driver: local
   prowlarr-data:
     driver: local
-  bazarr-data-data:
+  bazarr-data:
     driver: local
   overseerr-data:
     driver: local
