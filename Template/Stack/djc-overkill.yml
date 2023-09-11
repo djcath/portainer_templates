@@ -20,7 +20,7 @@ services:
       - 8989:8989
     volumes:
       - sonarr-data:/config
-      - ${downloads}:/downloads
+      - ${downloads1}:/downloads
       - ${tv}:/tv
     networks:
       - proxynet
@@ -32,7 +32,7 @@ services:
       - 9090:9090
     volumes:
       - sabnzbd-data:/config
-      - ${downloads}:/downloads
+      - ${downloads2}:/downloads
       - ${incomplete}:/incomplete-downloads
     networks:
       - proxynet
@@ -83,6 +83,10 @@ volumes:
   overseerr-data:
     driver: local
   ${downloads}:
+    driver: bind
+  ${downloads1}:
+    driver: bind
+  ${downloads2}:
     driver: bind
   ${incomplete}:
     driver: bind
