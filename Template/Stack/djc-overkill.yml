@@ -53,8 +53,7 @@ services:
       - 6767:6767
     volumes:
       - bazarr-data:/config
-      - ${movies}:/movies
-      - ${tv}:/tv
+
 
     networks:
       - proxynet
