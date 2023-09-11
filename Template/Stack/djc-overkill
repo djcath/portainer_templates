@@ -1,0 +1,98 @@
+---
+version: "3.2"
+services:
+  radarr:
+    image: hotio/radarr:latest
+    restart: unless-stopped
+    ports:
+      - 7878:7878
+    volumes:
+      - radarr-data:/config
+      - ${downloads}:/downloads
+      - ${movies}:/movies
+    networks:
+      - proxynet
+
+  sonarr:
+    image: hotio/sonarr:latest
+    restart: unless-stopped
+    ports:
+      - 8989:8989
+    volumes:
+      - sonarr-data:/config
+      - ${downloads}:/downloads
+      - ${tv}:/tv
+    networks:
+      - proxynet
+  sabnzbd:
+    image: linuxserver/sabnzbd:latest
+    restart: unless-stopped
+    ports:
+      - 8383:8383
+      - 9090:9090
+    volumes:
+      - sabnzbd-data:/config
+      - ${downloads}:/downloads
+      - ${incomplete}:/incomplete-downloads
+    networks:
+      - proxynet
+  prowlarr:
+    image: ghcr.io/linuxserver/prowlarr:develop
+    restart: unless-stopped
+    ports:
+      - 9696:9696
+    volumes:
+      - prowlarr-data:/config
+
+    networks:
+      - proxynet
+  bazarr:
+    image: hotio/bazarr:latest
+    restart: unless-stopped
+    ports:
+      - 6767:6767
+    volumes:
+      - bazarr-data:/config
+      - ${movies}:/movies
+      - ${tv}:/tv
+
+    networks:
+      - proxynet
+
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    restart: unless-stopped
+    ports:
+      - 5055:5055
+    volumes:
+      - overseerr-data:/config
+
+    networks:
+      - proxynet
+
+volumes:
+  radarr-data:
+    driver: local
+  sonarr-data:
+    driver: local
+  sabnzbd-data:
+    driver: local
+  prowlarr-data:
+    driver: local
+  bazarr-data-data:
+    driver: local
+  overseerr-data:
+    driver: local
+  ${downloads}:
+    driver: bind
+  ${incomplete}:
+    driver: bind
+  ${movies}:
+    driver: bind
+  ${tv}:
+    driver: bind
+
+networks:
+  proxynet:
+    driver: bridge
+    external: true
