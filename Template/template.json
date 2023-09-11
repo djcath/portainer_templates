@@ -1358,7 +1358,7 @@
           "name": "tv"
         }
       ],
-      "logo": "https://goauthentik.io/img/icon_top_brand_colour.svg",
+      "logo": "https://raw.githubusercontent.com/djcath/portainer_templates/master/Images/radarr.png",
       "name": "DJC-Overkill",
       "platform": "linux",
       "repository": {
