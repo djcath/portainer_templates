@@ -51,7 +51,7 @@ services:
     networks:
       - proxynet
   bazarr:
-    image: hotio/bazarr:latest
+    image: linuxserver/bazarr:latest
     restart: unless-stopped
     hostname: bazarr
     ports:
