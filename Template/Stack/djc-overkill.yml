@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   radarr:
-    image: lscr.io/linuxserver/radarr:latest
+    image: linuxserver/radarr:latest
     restart: unless-stopped
     ports:
       - 7878:7878
@@ -14,13 +14,13 @@ services:
       - proxynet
 
   sonarr:
-    image: hlscr.io/linuxserver/sonarr:latest
+    image: linuxserver/sonarr:latest
     restart: unless-stopped
     ports:
       - 8989:8989
     volumes:
       - sonarr-data:/config
-      - ${downloads1}:/downloads
+      - ${downloads}:/downloads
       - ${tv}:/tv
     networks:
       - proxynet
@@ -32,12 +32,12 @@ services:
       - 9090:9090
     volumes:
       - sabnzbd-data:/config
-      - ${downloads2}:/downloads
+      - ${downloads}:/downloads
 
     networks:
       - proxynet
   prowlarr:
-    image: ghcr.io/linuxserver/prowlarr:develop
+    image: linuxserver/prowlarr:develop
     restart: unless-stopped
     ports:
       - 9696:9696
@@ -59,7 +59,7 @@ services:
       - proxynet
 
   overseerr:
-    image: lscr.io/linuxserver/overseerr:latest
+    image: linuxserver/overseerr:latest
     restart: unless-stopped
     ports:
       - 5055:5055
@@ -82,18 +82,7 @@ volumes:
     driver: local
   overseerr-data:
     driver: local
-  ${downloads}:
-    driver: bind
-  ${downloads1}:
-    driver: bind
-  ${downloads2}:
-    driver: bind
-  ${incomplete}:
-    driver: bind
-  ${movies}:
-    driver: bind
-  ${tv}:
-    driver: bind
+
 
 networks:
   proxynet:
