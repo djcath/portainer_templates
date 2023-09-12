@@ -7,6 +7,10 @@ services:
     hostname: radarr
     ports:
       - 7878:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - radarr-data:/config
       - ${downloads}:/downloads
@@ -20,6 +24,10 @@ services:
     hostname: sonarr
     ports:
       - 8989:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - sonarr-data:/config
       - ${downloads}:/downloads
@@ -33,6 +41,10 @@ services:
     ports:
       - 8383:8383
       - 9090:9090
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - sabnzbd-data:/config
       - ${downloads}:/downloads
@@ -45,6 +57,10 @@ services:
     hostname: prowlarr
     ports:
       - 9696:9696
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - prowlarr-data:/config
 
@@ -56,6 +72,10 @@ services:
     hostname: bazarr
     ports:
       - 6767:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - bazarr-data:/config
       - ${tv}:/tv
@@ -70,6 +90,10 @@ services:
     hostname: lidarr
     ports:
       - 8686:8686
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - lidarr-data:/config
       - ${downloads}:/downloads
@@ -82,6 +106,10 @@ services:
     hostname: overseerr
     ports:
       - 5055:5055
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - overseerr-data:/config
 
