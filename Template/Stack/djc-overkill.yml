@@ -4,7 +4,6 @@ services:
   radarr:
     image: linuxserver/radarr:latest
     restart: unless-stopped
-    hostname: radarr
     ports:
       - 7878:7878
     volumes:
@@ -17,7 +16,6 @@ services:
   sonarr:
     image: linuxserver/sonarr:latest
     restart: unless-stopped
-    hostname: sonarr
     ports:
       - 8989:8989
     volumes:
@@ -29,7 +27,6 @@ services:
   sabnzbd:
     image: linuxserver/sabnzbd:latest
     restart: unless-stopped
-    hostname: sabnzbd
     ports:
       - 8383:8383
       - 9090:9090
@@ -42,7 +39,6 @@ services:
   prowlarr:
     image: linuxserver/prowlarr:develop
     restart: unless-stopped
-    hostname: prowlarr
     ports:
       - 9696:9696
     volumes:
@@ -53,7 +49,6 @@ services:
   bazarr:
     image: linuxserver/bazarr:latest
     restart: unless-stopped
-    hostname: bazarr
     ports:
       - 6767:6767
     volumes:
@@ -65,7 +60,6 @@ services:
    lidarr:
     image: linuxserver/lidarr:latest
     restart: unless-stopped
-    hostname: lidarr
     ports:
       - 8686:8686
     volumes:
@@ -78,7 +72,6 @@ services:
   overseerr:
     image: linuxserver/overseerr:latest
     restart: unless-stopped
-    hostname: overseerr
     ports:
       - 5055:5055
     volumes:
