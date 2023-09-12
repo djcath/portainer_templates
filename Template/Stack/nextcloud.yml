@@ -3,16 +3,16 @@ version: "3.2"
 services:
   nextcloud:
     image: linuxserver/nextcloud
-    container_name: nextcloud
+    hostname: nextcloud
     environment:
-      - PUID=99
-      - PGID=100
-      - TZ=${TZ}
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Victoria
     volumes:
       - nextcloudconfig:/config
       - ${DATADRIVE}:/data
     ports:
-      - ${PORT}:443
+      - 444:443
     restart: unless-stopped
     depends_on:
       - nextcloud_db
@@ -23,6 +23,7 @@ services:
   nextcloud_db:
     image: registry.hub.docker.com/library/postgres:14
     restart: unless-stopped
+    hostname: nextcloud_db
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
       start_period: 20s
