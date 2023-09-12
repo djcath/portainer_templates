@@ -1355,13 +1355,13 @@
         }
       ],
       "logo": "https://raw.githubusercontent.com/djcath/portainer_templates/master/Images/radarr.png",
-      "name": "DJC-Overkill",
+      "name": "Overkill",
       "platform": "linux",
       "repository": {
         "stackfile": "Template/Stack/djc-overkill.yml",
         "url": "https://github.com/djcath/portainer_templates"
       },
-      "title": "DJC-Overkill",
+      "title": "Media-Overkill",
       "type": 3
     },	  
     {
