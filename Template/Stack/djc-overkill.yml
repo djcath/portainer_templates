@@ -33,7 +33,7 @@ services:
     volumes:
       - sabnzbd-data:/config
       - ${downloads}:/downloads
-      - ${incomplete}:/incomplete-downloads
+
     networks:
       - proxynet
   prowlarr:
