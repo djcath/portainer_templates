@@ -2,25 +2,25 @@
 version: "3.2"
 services:
   radarr:
-    image: hotio/radarr:latest
+    image: lscr.io/linuxserver/radarr:latest
     restart: unless-stopped
     ports:
       - 7878:7878
     volumes:
       - radarr-data:/config
-      - ${downloads}:/data
+      - ${downloads}:/downloads
       - ${movies}:/movies
     networks:
       - proxynet
 
   sonarr:
-    image: hotio/sonarr:latest
+    image: hlscr.io/linuxserver/sonarr:latest
     restart: unless-stopped
     ports:
       - 8989:8989
     volumes:
       - sonarr-data:/config
-      - ${downloads1}:/data
+      - ${downloads1}:/downloads
       - ${tv}:/tv
     networks:
       - proxynet
