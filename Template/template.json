@@ -1390,13 +1390,13 @@
         }
       ],
       "logo": "https://goauthentik.io/img/icon_top_brand_colour.svg",
-      "name": "Authentik-Overkill",
+      "name": "Authentik",
       "platform": "linux",
       "repository": {
         "stackfile": "Template/Stack/authentik.yml",
         "url": "https://github.com/djcath/portainer_templates"
       },
-      "title": "Authentik-Overkill",
+      "title": "Authentik",
       "type": 3
     },  
     {
@@ -2315,6 +2315,10 @@
       "description": "Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
       "env": [
         {
+          "label": "TimeZone",
+          "name": "TZ"
+        },
+        {
           "label": "DATABASE_PASSWORD",
           "name": "DB_PASS"
         },
@@ -2322,16 +2326,20 @@
           "label": "Store Nextcloud Data",
           "name": "DATADRIVE"
         },
+        {
+          "label": "PORT",
+          "name": "PORT"
+        }
       ],
       "logo": "https://raw.githubusercontent.com/djcath/portainer_templates/master/Images/nextcloud-icon.png",
-      "name": "nextcloud-overkill",
+      "name": "nextcloud",
       "note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
       "platform": "linux",
       "repository": {
         "stackfile": "Template/Stack/nextcloud.yml",
         "url": "https://github.com/djcath/portainer_templates"
       },
-      "title": "Files-Overkill",
+      "title": "Nextcloud",
       "type": 3
     },
     {
