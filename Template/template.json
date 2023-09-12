@@ -1349,6 +1349,10 @@
           "label": "Download Directory",
           "name": "downloads1"
         },
+        {
+          "label": "Download Directory",
+          "name": "downloads2"
+        },
 		{
           "label": "Incomplete Downloads Directory",
           "name": "incomplete"
