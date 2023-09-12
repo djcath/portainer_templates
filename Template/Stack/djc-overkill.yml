@@ -59,7 +59,19 @@ services:
     volumes:
       - bazarr-data:/config
 
+    networks:
+      - proxynet
 
+   lidarr:
+    image: linuxserver/lidarr:latest
+    restart: unless-stopped
+    hostname: lidarr
+    ports:
+      - 8686:8686
+    volumes:
+      - lidarr-data:/config
+      - ${music}:/music 
+      - ${downloads}:/downloads
     networks:
       - proxynet
 
@@ -87,6 +99,8 @@ volumes:
   bazarr-data:
     driver: local
   overseerr-data:
+    driver: local
+  lidarr-data:
     driver: local
 
 
