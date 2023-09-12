@@ -51,18 +51,31 @@ services:
     networks:
       - proxynet
   bazarr:
-    image: hotio/bazarr:latest
+    image: linuxserver/bazarr:latest
     restart: unless-stopped
     hostname: bazarr
     ports:
       - 6767:6767
     volumes:
       - bazarr-data:/config
+      - ${tv}:/tv
+      - ${movies}:/movies
 
 
     networks:
       - proxynet
-
+  lidarr:
+    image: linuxserver/lidarr:latest
+    restart: unless-stopped
+    hostname: lidarr
+    ports:
+      - 8686:8686
+    volumes:
+      - lidarr-data:/config
+      - ${downloads}:/downloads
+      - ${music}:/music
+    networks:
+      - proxynet
   overseerr:
     image: linuxserver/overseerr:latest
     restart: unless-stopped
