@@ -101,6 +101,8 @@ volumes:
     driver: local
   overseerr-data:
     driver: local
+  lidarr-data:
+    driver: local
 
 
 networks:
