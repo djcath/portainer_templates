@@ -4,6 +4,7 @@ services:
   postgresql:
     image: postgres:12-alpine
     restart: unless-stopped
+    hostname: postgresql
     volumes:
       - auth-database:/var/lib/postgresql/data
     environment:
@@ -17,6 +18,7 @@ services:
     image: docker.io/library/redis:alpine
     command: --save 60 1 --loglevel warning
     restart: unless-stopped
+    hostname: redis
     healthcheck:
       test:
         - CMD-SHELL
@@ -30,9 +32,10 @@ services:
     networks:
       - auth-secure
 
-  server:
+  authentik-server:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2023.5.3}
     restart: unless-stopped
+    hostname: authentik
     command: server
     environment:
       - AUTHENTIK_REDIS__HOST=redis
@@ -54,9 +57,10 @@ services:
     networks:
       - auth-secure
       - proxynet
-  worker:
+  authentik-worker:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2023.5.3}
     restart: unless-stopped
+    hostname: authentik-worker
     command: worker
     environment:
       - AUTHENTIK_REDIS__HOST=redis
