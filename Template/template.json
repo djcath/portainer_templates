@@ -1349,6 +1349,10 @@
           "label": "Movies Directory",
           "name": "movies"
         },
+	      		{
+          "label": "Music Directory",
+          "name": "music"
+        },
 		{
           "label": "TV Shows Directory",
           "name": "tv"
