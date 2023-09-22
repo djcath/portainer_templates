@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
     hostname: sabnzbd
     ports:
-      - 8383:8383
+      - 8383:8080
       - 9090:9090
     environment:
       - PUID=1000
